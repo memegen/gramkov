@@ -34,7 +34,7 @@ class Gramkov():
 	# extract sentence structure from corpus
 	def makestruct(self):
 		for i in range(0,len(self.tagged)):
-			self.struct.append(self.tagged[i][1])		
+			self.struct.append(self.tagged[i][1])
 
 	# extract part of speech information of the words from corpus
 	def makeposdict(self):
@@ -59,7 +59,7 @@ class Gramkov():
 				f1.write(json.dumps(self.struct))
 			if data == "posdict":
 				f1 = open("train/"+name+".pdt.json","w")
-				f1.write(json.dumps(self.posdict))			
+				f1.write(json.dumps(self.posdict))
 			if data == "markov":
 				f1 = open("train/"+name+".mrk.json","w")
 				f1.write(json.dumps(self.m20.corp))
@@ -72,8 +72,8 @@ class Gramkov():
 			if data == "posdict":
 				path = "train/"+name+".pdt.json"
 				f1 = open(path,"r")
-				self.posdict = json.loads(f1.read())	
-				print "posdict loaded: "+path		
+				self.posdict = json.loads(f1.read())
+				print "posdict loaded: "+path
 			if data == "markov":
 				path = "train/"+name+".mrk.json"
 				f1 = open(path,"r")
@@ -177,7 +177,7 @@ class Gramkov():
 				out += "\n"+" ".join(output).replace('``','"').replace("''",'"').replace(" ,",
 					",").replace(" .",".").replace(" ?","?").replace(" !","!").replace(" ;",";").replace(" :",
 					":").replace(" '","'").replace("( ","(").replace(" )",")")
-			
+
 		return sentcase(out)
 
 
@@ -203,4 +203,3 @@ if __name__ == "__main__":
 	print
 	run()
 	print
-
